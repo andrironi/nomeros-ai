@@ -4,11 +4,8 @@ import MarkdownIt from 'markdown-it';
 import { maybeShowApiKeyBanner } from './gemini-api-banner';
 import './style.css';
 
-// 🔥🔥 FILL THIS OUT FIRST! 🔥🔥
-// Get your Gemini API key by:
-// - Selecting "Add Gemini API" in the "Project IDX" panel in the sidebar
-// - Or by visiting https://g.co/ai/idxGetGeminiKey
-let API_KEY = 'AIzaSyBxK_bQ5q8IEhbzrLPCURdzkL-BRM31wb8';
+
+let API_KEY = 'YOUR GEMINI API KEY';
 
 let form = document.querySelector('form');
 let promptInput = document.querySelector('input[name="prompt"]');
@@ -19,18 +16,10 @@ form.onsubmit = async (ev) => {
   output.textContent = 'memuat jawaban...';
 
   try {
-    // Load the image as a base64 string
-    // let imageUrl = form.elements.namedItem('chosen-image').value;
-    // let imageBase64 = await fetch(imageUrl)
-    //   .then(r => r.arrayBuffer())
-    //   .then(a => Base64.fromByteArray(new Uint8Array(a)));
-
-    // Assemble the prompt by combining the text with the chosen image
     let contents = [
       {
         role: 'user',
         parts: [
-          // { inline_data: { mime_type: 'image/jpeg', data: imageBase64, } },
           { text: promptInput.value }
         ]
       }
